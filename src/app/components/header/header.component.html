@@ -1,0 +1,40 @@
+<header class="header">
+  <div class="header-content">
+    <div class="logo">
+      <img src="/assets/logoItau.png" alt="Itaú BBA Logo">
+    </div>
+
+    <div class="right-section">
+      <div class="select-wrapper">
+        <select
+          disableRipple
+          class="language-select"
+          [value]="selectedLanguage"
+          (change)="changeLanguage($event)">
+          <option value="EN" class="option">EN</option>
+          <option value="PT" class="option">PT</option>
+        </select>
+      </div>
+
+      <hr class="separator" />
+
+      <div class="user-avatar"></div>
+
+      <div class="user-info">
+        <span class="user-name">John Doe</span>
+        <span class="user-title">Diretor Itaú BBA</span>
+      </div>
+
+     <div class="logout">
+        <button mat-icon-button	[matMenuTriggerFor]="menu">
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu" class="menu">
+          <button mat-menu-item>Profile</button>
+          <button mat-menu-item>Sign out</button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</header>

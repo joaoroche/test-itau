@@ -1,0 +1,146 @@
+.mat-menu-item {
+  color: blue !important;
+
+  button & {
+    background-color: white !important;
+
+    &:hover {
+      background-color: blue;
+      color: #fff !important;
+    }
+  }
+}
+
+
+.header {
+  background-color: #ffe6cc;
+  padding: 1rem;
+  border-bottom: 2px solid #ff6600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 64rem;
+
+    .logo img {
+      height: 2.5rem;
+    }
+
+    .right-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .language-select {
+        display: inline-block;
+        padding: 0.653rem 0.5rem;
+        font-size: 1rem;
+        color: #333;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 1px solid transparent;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        cursor: pointer;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          border-color: #999;
+        }
+
+        &:focus {
+          border-color: #666;
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        &:disabled {
+          background-color: #f5f5f5;
+          cursor: not-allowed;
+        }
+      }
+
+      .language-select::-ms-expand {
+        display: none;
+      }
+
+      .language-select::after {
+        content: '\25BC';
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+
+      .option {
+        background-color: #fff;
+        color: #333;
+        padding: 0.5rem;
+        font-size: 1rem;
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+
+      .separator {
+        height: 1.875rem;
+        width: 0.063rem;
+        background-color: #333;
+      }
+
+      .user-info {
+        display: flex;
+        flex-direction: column;
+
+        .user-name, .user-title {
+          display: block;
+          margin-right: 0.5rem;
+        }
+      }
+
+      .user-avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: #333;
+        border-radius: 50%;
+      }
+
+      .logout {
+
+      }
+  }
+  }
+}
+
+@media (min-width: 768px) {
+  .header-content {
+    .logo img {
+      height: 3.125rem;
+    }
+
+    .right-section {
+      .language {
+        margin-right: 1.5rem;
+      }
+
+      .user-info {
+        .user-name, .user-title {
+          margin-right: 1rem;
+        }
+      }
+
+      .user-avatar {
+        width: 3.125rem;
+        height: 3.125rem;
+      }
+    }
+  }
+}
