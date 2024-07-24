@@ -23,12 +23,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CompanyComponent } from './pages/company/company.component';
 import { IdCompanyComponent } from './pages/company/id-company/id-company.component';
+import { NotFoundComponentComponent } from './components/not-found-component/not-found-component.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CompanyComponent,
-    IdCompanyComponent
+    IdCompanyComponent,
+    NotFoundComponentComponent
   ],
   imports: [
     BrowserModule,

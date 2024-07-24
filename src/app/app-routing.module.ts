@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CompanyComponent } from './pages/company/company.component';
 import { IdCompanyComponent } from './pages/company/id-company/id-company.component';
+import { NotFoundComponentComponent } from './components/not-found-component/not-found-component.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,11 @@ const routes: Routes = [
   },
   {
     path: 'company/:id', component: IdCompanyComponent
+  },
+  {
+    path        : '**',
+    pathMatch   : 'full',
+    component: NotFoundComponentComponent
   }
 
 ];
