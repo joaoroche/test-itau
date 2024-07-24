@@ -17,13 +17,17 @@ import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
+
 import { HeaderComponent } from './components/header/header.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+
 import { CompanyComponent } from './pages/company/company.component';
 import { IdCompanyComponent } from './pages/company/id-company/id-company.component';
 import { NotFoundComponentComponent } from './components/not-found-component/not-found-component.component';
+
+import { AppComponent } from './app.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +50,9 @@ import { NotFoundComponentComponent } from './components/not-found-component/not
     HttpClientModule,
     MatProgressSpinnerModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
   providers: [],
   bootstrap: [AppComponent]

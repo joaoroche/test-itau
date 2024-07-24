@@ -23,6 +23,7 @@
         <mat-label class="label">CEP</mat-label>
         <input matInput placeholder="08030-190"
         [(ngModel)]="company.cep"
+        [mask]="'00000-000'"
         >
       </mat-form-field>
 
@@ -41,7 +42,9 @@
       <mat-form-field class="width-full">
         <mat-label class="label">Estado</mat-label>
         <input matInput class="width-full" placeholder="SP"
-        [(ngModel)]="company.state">
+        [(ngModel)]="company.state"
+        maxlength="2"
+        >
       </mat-form-field>
 
       <mat-form-field class="width-full">
@@ -76,8 +79,12 @@
 
       <mat-form-field class="width-full">
         <mat-label class="label">CNPJ</mat-label>
-        <input matInput placeholder="00.000.000/0000-00"
-        [(ngModel)]="company.cnpj">
+        <input
+        matInput
+        placeholder="00.000.000/0000-00"
+        [(ngModel)]="company.cnpj"
+        [mask]="'99.999.999/9999-99'">
+
       </mat-form-field>
 
       <mat-form-field class="width-full">

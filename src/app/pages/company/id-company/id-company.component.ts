@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { provideNgxMask } from 'ngx-mask';
 import { IBusiness } from 'src/app/models/company';
 import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
   selector: 'app-id-company',
   templateUrl: './id-company.component.html',
-  styleUrls: ['./id-company.component.scss']
+  styleUrls: ['./id-company.component.scss'],
+  providers: [provideNgxMask(),]
 })
 export class IdCompanyComponent implements OnInit {
   // Data
@@ -35,7 +37,7 @@ export class IdCompanyComponent implements OnInit {
     this.loading = true;
     this.companyService.fetchCompanyById(id).subscribe({
       next: (company: IBusiness) => {
-        this.company = company;
+        this.company = company
         this.loading = false;
         this.errorMessage = '';
       },
