@@ -12,10 +12,19 @@ export class CompanyService {
 
   constructor(private http: HttpClient) {}
 
-fetchCompanies(): Observable<IBusiness[]> {
+  fetchCompanies(): Observable<IBusiness[]> {
     return this.http.get<IBusiness[]>(this.apiUrl).pipe(
       catchError(error => {
         console.error('Error fetching companies', error);
+        return throwError(() => error);
+      })
+    );
+  }
+
+  fetchCompanyById(id: number): Observable<IBusiness> {
+    return this.http.get<IBusiness>(`${this.apiUrl}/${id}`).pipe(
+      catchError(error => {
+        console.error('Error fetching company', error);
         return throwError(() => error);
       })
     );

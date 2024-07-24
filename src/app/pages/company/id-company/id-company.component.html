@@ -1,8 +1,8 @@
 <main class="main">
   <section class="section">
-    <h1 class="title">Polos NOME AQUI</h1>
+    <h1 class="title">Polos {{company.name}}</h1>
     <h6 class="description">
-      Exibindo detalhes do polo NOME AQUI#ID
+      Exibindo detalhes do polo {{company.name}}#{{company.id}}
     </h6>
   </section>
 
@@ -12,7 +12,8 @@
     <div class="form-group">
       <mat-form-field>
         <mat-label class="label">CEP</mat-label>
-        <input matInput placeholder="08030-190">
+        <input matInput placeholder="08030-190"
+        [value]="company.cep">
       </mat-form-field>
 
       <mat-form-field class="street">
@@ -43,27 +44,31 @@
     <div class="form-group">
       <mat-form-field>
         <mat-label class="label">Nome</mat-label>
-        <input matInput placeholder="Nome da Empresa">
+        <input matInput placeholder="Nome da Empresa"
+        [value]="company.name">
       </mat-form-field>
 
       <mat-form-field>
         <mat-label class="label">Business </mat-label>
-        <input matInput placeholder="Financeiro">
+        <input matInput placeholder="Financeiro"
+        [value]="company.business">
       </mat-form-field>
 
       <mat-form-field>
         <mat-label class="label">Valuation</mat-label>
-        <input matInput placeholder="R$ 1.000.000,00">
+        <input matInput placeholder="R$ 1.000.000,00"
+        [value]="company.valuation">
       </mat-form-field>
 
       <mat-form-field>
         <mat-label class="label">CNPJ</mat-label>
-        <input matInput placeholder="00.000.000/0000-00">
+        <input matInput placeholder="00.000.000/0000-00"
+        [value]="company.cnpj">
       </mat-form-field>
 
       <mat-form-field>
         <mat-label class="label">Ativo?</mat-label>
-        <select matNativeControl>
+        <select matNativeControl [value]="company.active">
           <option value="true">Sim</option>
           <option value="false">Não</option>
         </select>
