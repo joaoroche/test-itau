@@ -4,12 +4,13 @@ import { from, Observable, throwError } from 'rxjs';
 import { IBusiness } from '../models/company';
 import { catchError, switchMap } from 'rxjs/operators';
 import cep from 'cep-promise';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompanyService {
-  private apiUrl = 'https://antlia-mockapi.azurewebsites.net/api/v1/itau_teste';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
