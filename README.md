@@ -1,27 +1,58 @@
-# TestItau
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.14.
+# Teste Itaú
 
-## Development server
+## Tabela de Conteúdo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Introdução](#introdução)
+- [Recursos](#recursos)
+- [Instalação](#instalação)
+- [Uso](#uso)
+- [Licença](#licença)
 
-## Code scaffolding
+## Introdução
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Esse projeto foi desenvolvido com o intuito de avaliar o conhecimento do candidato em Angular. Ele permite a listagem de empresas e a visualização de detalhes de uma empresa específica.
 
-## Build
+## Recursos
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Listagem de empresas
+- Visualização de detalhes de uma empresa
 
-## Running unit tests
+## Instalação
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Pré-requisitos
 
-## Running end-to-end tests
+- Node.js (versão 18.19.1)
+- Angular CLI (versão 16.2.14)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Passos
 
-## Further help
+1. Clone o repositório:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    ```bash
+    git clone https://github.com/joaoroche/test-itau
+    ```
+
+2. Navegue até o diretório do projeto:
+
+    ```bash
+    cd test-itau
+    ```
+
+3. Instale as dependências:
+
+    ```bash
+    npm install
+    ```
+
+## Uso
+
+### Servidor de Desenvolvimento
+
+Para rodar o servidor de desenvolvimento:
+
+```bash
+ng serve
+```
+
+Este comando irá iniciar o servidor e o aplicativo estará disponível em `http://localhost:4200/`.
