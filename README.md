@@ -52,7 +52,7 @@ Esse projeto foi desenvolvido com o intuito de avaliar o conhecimento do candida
 Para rodar o servidor de desenvolvimento:
 
 ```bash
-ng serve
+npm run start
 ```
 
 Este comando irá iniciar o servidor e o aplicativo estará disponível em `http://localhost:4200/`.
