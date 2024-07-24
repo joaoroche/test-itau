@@ -18,10 +18,11 @@
     <p>Detalhes do endereço</p>
 
     <div class="form-group">
-      <mat-form-field>
+      <mat-form-field class="width-full">
         <mat-label class="label">CEP</mat-label>
         <input matInput placeholder="08030-190"
-        [(ngModel)]="company.cep">
+        [(ngModel)]="company.cep"
+        >
       </mat-form-field>
 
       <mat-form-field class="street">
@@ -30,19 +31,19 @@
         [(ngModel)]="company.street">
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field class="width-full">
         <mat-label class="label">Bairro</mat-label>
         <input matInput placeholder="Vila Prudente"
         [(ngModel)]="company.neighborhood">
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field class="width-full">
         <mat-label class="label">Estado</mat-label>
-        <input matInput placeholder="SP"
+        <input matInput class="width-full" placeholder="SP"
         [(ngModel)]="company.state">
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field class="width-full">
         <mat-label class="label">Cidade</mat-label>
         <input matInput placeholder="São Paulo"
         [(ngModel)]="company.city">
@@ -54,31 +55,31 @@
     <p>Detalhes da Empresa</p>
 
     <div class="form-group">
-      <mat-form-field>
+      <mat-form-field class="width-full">
         <mat-label class="label">Nome</mat-label>
         <input matInput placeholder="Nome da Empresa"
         [(ngModel)]="company.name">
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field class="width-full">
         <mat-label class="label">Business </mat-label>
         <input matInput placeholder="Financeiro"
         [(ngModel)]="company.business">
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field class="width-full">
         <mat-label class="label">Valuation</mat-label>
         <input matInput placeholder="R$ 1.000.000,00"
         [(ngModel)]="company.valuation">
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field class="width-full">
         <mat-label class="label">CNPJ</mat-label>
         <input matInput placeholder="00.000.000/0000-00"
         [(ngModel)]="company.cnpj">
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field class="width-full">
         <mat-label class="label">Ativo?</mat-label>
         <select matNativeControl [(ngModel)]="company.active">
           <option value="true">Sim</option>
