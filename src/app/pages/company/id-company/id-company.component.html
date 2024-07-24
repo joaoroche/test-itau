@@ -7,9 +7,10 @@
     {{ errorMessage }}
   </div>
 
-  <section class="section">
-    <h1 class="title" *ngIf="!loading && !errorMessage">Polos {{company.name}}</h1>
-    <h6 class="description"*ngIf="!loading && !errorMessage">
+  <section class="section" *ngIf="!loading && !errorMessage">
+    <h1 class="title" >Polos {{company.name}}</h1>
+
+    <h6 class="description">
       Exibindo detalhes do polo {{company.name}}#{{company.id}}
     </h6>
   </section>
