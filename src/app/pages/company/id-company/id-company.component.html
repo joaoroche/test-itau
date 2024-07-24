@@ -21,27 +21,31 @@
       <mat-form-field>
         <mat-label class="label">CEP</mat-label>
         <input matInput placeholder="08030-190"
-        [value]="company.cep">
+        [(ngModel)]="company.cep">
       </mat-form-field>
 
       <mat-form-field class="street">
         <mat-label class="label">Nome da Rua</mat-label>
-        <input matInput placeholder="R. Grapirá">
+        <input matInput placeholder="R. Grapirá"
+        [(ngModel)]="company.street">
       </mat-form-field>
 
       <mat-form-field>
         <mat-label class="label">Bairro</mat-label>
-        <input matInput placeholder="Vila Prudente">
+        <input matInput placeholder="Vila Prudente"
+        [(ngModel)]="company.neighborhood">
       </mat-form-field>
 
       <mat-form-field>
         <mat-label class="label">Estado</mat-label>
-        <input matInput placeholder="SP">
+        <input matInput placeholder="SP"
+        [(ngModel)]="company.state">
       </mat-form-field>
 
       <mat-form-field>
         <mat-label class="label">Cidade</mat-label>
-        <input matInput placeholder="São Paulo">
+        <input matInput placeholder="São Paulo"
+        [(ngModel)]="company.city">
       </mat-form-field>
     </div>
   </section>
@@ -53,30 +57,30 @@
       <mat-form-field>
         <mat-label class="label">Nome</mat-label>
         <input matInput placeholder="Nome da Empresa"
-        [value]="company.name">
+        [(ngModel)]="company.name">
       </mat-form-field>
 
       <mat-form-field>
         <mat-label class="label">Business </mat-label>
         <input matInput placeholder="Financeiro"
-        [value]="company.business">
+        [(ngModel)]="company.business">
       </mat-form-field>
 
       <mat-form-field>
         <mat-label class="label">Valuation</mat-label>
         <input matInput placeholder="R$ 1.000.000,00"
-        [value]="company.valuation">
+        [(ngModel)]="company.valuation">
       </mat-form-field>
 
       <mat-form-field>
         <mat-label class="label">CNPJ</mat-label>
         <input matInput placeholder="00.000.000/0000-00"
-        [value]="company.cnpj">
+        [(ngModel)]="company.cnpj">
       </mat-form-field>
 
       <mat-form-field>
         <mat-label class="label">Ativo?</mat-label>
-        <select matNativeControl [value]="company.active">
+        <select matNativeControl [(ngModel)]="company.active">
           <option value="true">Sim</option>
           <option value="false">Não</option>
         </select>
@@ -96,6 +100,7 @@
     <button
       mat-raised-button
       class="button save"
+      (click)="save()"
     >
       Salvar
     </button>

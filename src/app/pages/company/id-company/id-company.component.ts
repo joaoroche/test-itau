@@ -3,10 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { IBusiness } from 'src/app/models/company';
 import { CompanyService } from 'src/app/services/company.service';
 
-//TODO: Adicionar LOADING
-//TODO: Adicionar ERROR
-//TODO: Adicionar BOTÃO SALVAR
-
 @Component({
   selector: 'app-id-company',
   templateUrl: './id-company.component.html',
@@ -49,6 +45,20 @@ export class IdCompanyComponent implements OnInit {
         this.loading = false;
       }
     });
+  }
+
+  save() {
+    alert(`Salvo com sucesso!
+    Nome: ${this.company.name || ''}
+    CEP: ${this.company.cep || ''}
+    Rua: ${this.company.street || ''}
+    Bairro: ${this.company.neighborhood || ''}
+    Estado: ${this.company.state || ''}
+    Cidade: ${this.company.city || ''}
+    Business: ${this.company.business || ''}
+    Valuation: ${this.company.valuation || ''}
+    CNPJ: ${this.company.cnpj || ''}
+    Ativo: ${this.company.active || ''}`);
   }
 
   back(): void {

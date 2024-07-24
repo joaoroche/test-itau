@@ -6,4 +6,8 @@ export interface IBusiness {
   active: boolean;
   cep: string;
   cnpj: string;
+  street?: string;
+  neighborhood?: string;
+  state?: string;
+  city?: string;
 }

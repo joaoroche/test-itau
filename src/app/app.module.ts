@@ -13,6 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { FormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { HeaderComponent } from './components/header/header.component';
@@ -41,8 +43,8 @@ import { IdCompanyComponent } from './pages/company/id-company/id-company.compon
     MatPaginatorModule,
     HttpClientModule,
     MatProgressSpinnerModule,
-    MatInputModule
-
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
