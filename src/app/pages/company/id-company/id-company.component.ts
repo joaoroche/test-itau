@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { provideNgxMask } from 'ngx-mask';
-import { IBusiness } from 'src/app/models/company';
+import { IBusiness, IBusinessFormatted } from 'src/app/models/company';
 import { CompanyService } from 'src/app/services/company.service';
+import { mapperGetCompanyFormatted } from 'src/app/utils/mappers/company/getCompany';
 
 @Component({
   selector: 'app-id-company',
@@ -12,7 +13,7 @@ import { CompanyService } from 'src/app/services/company.service';
 })
 export class IdCompanyComponent implements OnInit {
   // Data
-  company!: IBusiness;
+  company!: IBusinessFormatted;
 
   // Request
   loading = false;
@@ -37,7 +38,7 @@ export class IdCompanyComponent implements OnInit {
     this.loading = true;
     this.companyService.fetchCompanyById(id).subscribe({
       next: (company: IBusiness) => {
-        this.company = company
+        this.company = mapperGetCompanyFormatted(company)
         this.loading = false;
         this.errorMessage = '';
       },

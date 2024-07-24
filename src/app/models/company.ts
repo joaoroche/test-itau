@@ -11,3 +11,7 @@ export interface IBusiness {
   state?: string;
   city?: string;
 }
+
+export interface IBusinessFormatted extends IBusiness {
+  formattedValuation: string;
+}

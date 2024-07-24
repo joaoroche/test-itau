@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IBusiness } from 'src/app/models/company';
+import { IBusinessFormatted } from 'src/app/models/company';
 import { CompanyService } from 'src/app/services/company.service';
+import { mapperGetCompanysFormatted } from 'src/app/utils/mappers/company/getCompanys';
 
 // TODO: Montar logica que quando realizar o filtro e não achar valores, exibir uma mensagem de erro
 
@@ -15,7 +16,7 @@ import { CompanyService } from 'src/app/services/company.service';
 export class CompanyComponent implements OnInit, AfterViewInit {
   // Table
   displayedColumns: string[] = ['name', 'business', 'valuation', 'active', 'action'];
-  dataSource = new MatTableDataSource<IBusiness>([]);
+  dataSource = new MatTableDataSource<IBusinessFormatted>([]);
 
   // Paginator
   resultsLength = 0;
@@ -55,7 +56,7 @@ export class CompanyComponent implements OnInit, AfterViewInit {
 
     this.companyService.fetchCompanies().subscribe({
       next: (value) => {
-        this.dataSource.data = value.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize);
+        this.dataSource.data = mapperGetCompanysFormatted(value.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize));
         this.resultsLength = value.length;
         this.paginator.pageIndex = pageIndex;
         this.paginator.pageSize = pageSize;
