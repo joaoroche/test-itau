@@ -1,1 +1,78 @@
-<p>id-company works!</p>
+<main class="main">
+  <section class="section">
+    <h1 class="title">Polos NOME AQUI</h1>
+    <h6 class="description">
+      Exibindo detalhes do polo NOME AQUI#ID
+    </h6>
+  </section>
+
+  <section class="form-content">
+    <p>Detalhes do endereço</p>
+
+    <div class="form-group">
+      <mat-form-field>
+        <mat-label class="label">CEP</mat-label>
+        <input matInput placeholder="08030-190">
+      </mat-form-field>
+
+      <mat-form-field class="street">
+        <mat-label class="label">Nome da Rua</mat-label>
+        <input matInput placeholder="R. Grapirá">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="label">Bairro</mat-label>
+        <input matInput placeholder="Vila Prudente">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="label">Estado</mat-label>
+        <input matInput placeholder="SP">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="label">Cidade</mat-label>
+        <input matInput placeholder="São Paulo">
+      </mat-form-field>
+    </div>
+  </section>
+
+  <section class="form-content">
+    <p>Detalhes da Empresa</p>
+
+    <div class="form-group">
+      <mat-form-field>
+        <mat-label class="label">Nome</mat-label>
+        <input matInput placeholder="Nome da Empresa">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="label">Business </mat-label>
+        <input matInput placeholder="Financeiro">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="label">Valuation</mat-label>
+        <input matInput placeholder="R$ 1.000.000,00">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="label">CNPJ</mat-label>
+        <input matInput placeholder="00.000.000/0000-00">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label class="label">Ativo?</mat-label>
+        <select matNativeControl>
+          <option value="true">Sim</option>
+          <option value="false">Não</option>
+        </select>
+      </mat-form-field>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <button mat-raised-button class="button back">Voltar</button>
+    <button mat-raised-button class="button save">Salvar</button>
+  </footer>
+</main>
