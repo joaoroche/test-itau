@@ -25,7 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { CompanyComponent } from './pages/company/company.component';
 import { IdCompanyComponent } from './pages/company/id-company/id-company.component';
-import { NotFoundComponentComponent } from './components/not-found-component/not-found-component.component';
+import { NotFoundComponentComponent } from './pages/not-found-component/not-found-component.component';
 
 import { AppComponent } from './app.component';
 @NgModule({
