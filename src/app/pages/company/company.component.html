@@ -1,0 +1,77 @@
+<main class="main">
+  <section class="section">
+    <div class="wrapper-title">
+      <h1 class="title">Polos Itaú</h1>
+      <h6 class="description">
+        Confira abaixo alguns dos principais polos do Itaú.
+      </h6>
+    </div>
+
+    <div class="wrapper-search">
+      <input
+        type="text"
+        placeholder="Pesquisar..."
+        class="search"
+        (input)="applyFilter($event)"
+      />
+    </div>
+  </section>
+  <div *ngIf="loading" class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="errorMessage && !loading" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <section *ngIf="!loading && !errorMessage"  class="table-container">
+    <table mat-table [dataSource]="dataSource" class="table">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef (click)="orderByAscName(
+          !orderByAsc
+        )"> Nome
+          <mat-icon *ngIf="orderByAsc" class="icon">arrow_drop_down</mat-icon>
+          <mat-icon *ngIf="!orderByAsc" class="icon">arrow_drop_up</mat-icon>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="business">
+        <th mat-header-cell *matHeaderCellDef> Business </th>
+        <td mat-cell *matCellDef="let element"> {{element.business}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="valuation">
+        <th mat-header-cell *matHeaderCellDef> Valuation </th>
+        <td mat-cell *matCellDef="let element"> {{element.valuation | number:'1.0-2'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="active">
+        <th mat-header-cell *matHeaderCellDef> Situação </th>
+        <td mat-cell *matCellDef="let element">
+          <span class="status" [ngClass]="{'active': element.active, 'inactive': !element.active}"></span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Ação </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button (click)="viewCampaign(element.id)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator
+      [length]="resultsLength"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      (page)="onPageChange($event)">
+    </mat-paginator>
+  </section>
+
+</main>
