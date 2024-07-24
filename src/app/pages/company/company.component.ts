@@ -89,7 +89,7 @@ export class CompanyComponent implements OnInit, AfterViewInit {
   }
 
   viewCampaign(id: string) {
-    this.router.navigate([`/campaigns/${id}`]);
+    this.router.navigate([`/company/${id}`]);
   }
 
     orderByAscName(orderByAsc: boolean) {
