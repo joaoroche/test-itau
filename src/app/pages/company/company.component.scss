@@ -50,6 +50,12 @@
     align-items: center;
   }
 
+  .error-message {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: red;
+  }
+
   .table-container {
     display: flex;
     flex-direction: column;

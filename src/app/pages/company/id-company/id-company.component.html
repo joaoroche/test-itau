@@ -1,12 +1,20 @@
 <main class="main">
+  <div *ngIf="loading" class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="errorMessage && !loading" class="error-message">
+    {{ errorMessage }}
+  </div>
+
   <section class="section">
-    <h1 class="title">Polos {{company.name}}</h1>
-    <h6 class="description">
+    <h1 class="title" *ngIf="!loading && !errorMessage">Polos {{company.name}}</h1>
+    <h6 class="description"*ngIf="!loading && !errorMessage">
       Exibindo detalhes do polo {{company.name}}#{{company.id}}
     </h6>
   </section>
 
-  <section class="form-content">
+  <section class="form-content" *ngIf="!loading && !errorMessage" >
     <p>Detalhes do endereço</p>
 
     <div class="form-group">
@@ -38,7 +46,7 @@
     </div>
   </section>
 
-  <section class="form-content">
+  <section class="form-content" *ngIf="!loading && !errorMessage" >
     <p>Detalhes da Empresa</p>
 
     <div class="form-group">
@@ -76,8 +84,20 @@
     </div>
   </section>
 
-  <footer class="footer">
-    <button mat-raised-button class="button back">Voltar</button>
-    <button mat-raised-button class="button save">Salvar</button>
+  <footer class="footer" *ngIf="!loading && !errorMessage" >
+    <button
+      mat-raised-button
+      class="button back"
+      (click)="back()"
+    >
+      Voltar
+    </button>
+
+    <button
+      mat-raised-button
+      class="button save"
+    >
+      Salvar
+    </button>
   </footer>
 </main>
