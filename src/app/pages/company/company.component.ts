@@ -1,21 +1,20 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 import { IBusinessFormatted } from 'src/app/models/company';
 import { CompanyService } from 'src/app/services/company.service';
 import { Country } from 'src/app/utils/functions/price';
 import { mapperGetCompanysFormatted } from 'src/app/utils/mappers/company/getCompanys';
-
-// TODO: Montar logica que quando realizar o filtro e não achar valores, exibir uma mensagem de erro
 
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
   styleUrls: ['./company.component.scss'],
 })
-export class CompanyComponent implements OnInit, AfterViewInit {
+export class CompanyComponent implements OnInit, AfterViewInit, OnDestroy {
   // Table
   displayedColumns: string[] = [
     'name',
@@ -34,6 +33,9 @@ export class CompanyComponent implements OnInit, AfterViewInit {
   // Request
   loading = false;
   errorMessage = '';
+
+  private langChangeSubscription!: Subscription;
+  private routeSubscription!: Subscription;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -60,7 +62,25 @@ export class CompanyComponent implements OnInit, AfterViewInit {
       this.orderByAsc = orderByAsc;
       this.fetchData(pageIndex, pageSize);
     });
+
+    this.langChangeSubscription = this.translateService.onLangChange.subscribe(() => {
+      const pageIndex = this.paginator.pageIndex;
+      const pageSize = this.paginator.pageSize;
+      this.fetchData(pageIndex, pageSize);
+    });
   }
+
+  ngOnDestroy() {
+    if (this.langChangeSubscription) {
+      this.langChangeSubscription.unsubscribe();
+    }
+    if (this.routeSubscription) {
+      this.routeSubscription.unsubscribe();
+    }
+  }
+
+
+
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -122,4 +142,6 @@ export class CompanyComponent implements OnInit, AfterViewInit {
     });
     this.orderByAsc = orderByAsc;
   }
+
+
 }

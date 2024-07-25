@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { provideNgxMask } from 'ngx-mask';
@@ -6,6 +6,7 @@ import { IBusiness, IBusinessFormatted } from 'src/app/models/company';
 import { CompanyService } from 'src/app/services/company.service';
 import { Country } from 'src/app/utils/functions/price';
 import { mapperGetCompanyFormatted } from 'src/app/utils/mappers/company/getCompany';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-id-company',
@@ -13,13 +14,16 @@ import { mapperGetCompanyFormatted } from 'src/app/utils/mappers/company/getComp
   styleUrls: ['./id-company.component.scss'],
   providers: [provideNgxMask()],
 })
-export class IdCompanyComponent implements OnInit {
+export class IdCompanyComponent implements OnInit, OnDestroy {
   // Data
   company!: IBusinessFormatted;
 
   // Request
   loading = false;
   errorMessage = '';
+
+  private langChangeSubscription!: Subscription;
+  private routeSubscription!: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,12 +32,28 @@ export class IdCompanyComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.routeSubscription = this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       if (id) {
         this.fetchCompany(Number(id));
       }
     });
+
+    this.langChangeSubscription = this.translateService.onLangChange.subscribe(() => {
+      const id = this.route.snapshot.paramMap.get('id');
+      if (id) {
+        this.fetchCompany(Number(id));
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.langChangeSubscription) {
+      this.langChangeSubscription.unsubscribe();
+    }
+    if (this.routeSubscription) {
+      this.routeSubscription.unsubscribe();
+    }
   }
 
   fetchCompany(id: number): void {
