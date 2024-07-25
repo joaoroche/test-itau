@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  AfterViewInit,
+  OnDestroy,
+} from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -63,11 +69,13 @@ export class CompanyComponent implements OnInit, AfterViewInit, OnDestroy {
       this.fetchData(pageIndex, pageSize);
     });
 
-    this.langChangeSubscription = this.translateService.onLangChange.subscribe(() => {
-      const pageIndex = this.paginator.pageIndex;
-      const pageSize = this.paginator.pageSize;
-      this.fetchData(pageIndex, pageSize);
-    });
+    this.langChangeSubscription = this.translateService.onLangChange.subscribe(
+      () => {
+        const pageIndex = this.paginator.pageIndex;
+        const pageSize = this.paginator.pageSize;
+        this.fetchData(pageIndex, pageSize);
+      }
+    );
   }
 
   ngOnDestroy() {
@@ -78,9 +86,6 @@ export class CompanyComponent implements OnInit, AfterViewInit, OnDestroy {
       this.routeSubscription.unsubscribe();
     }
   }
-
-
-
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -142,6 +147,4 @@ export class CompanyComponent implements OnInit, AfterViewInit, OnDestroy {
     });
     this.orderByAsc = orderByAsc;
   }
-
-
 }

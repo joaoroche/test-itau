@@ -39,12 +39,14 @@ export class IdCompanyComponent implements OnInit, OnDestroy {
       }
     });
 
-    this.langChangeSubscription = this.translateService.onLangChange.subscribe(() => {
-      const id = this.route.snapshot.paramMap.get('id');
-      if (id) {
-        this.fetchCompany(Number(id));
+    this.langChangeSubscription = this.translateService.onLangChange.subscribe(
+      () => {
+        const id = this.route.snapshot.paramMap.get('id');
+        if (id) {
+          this.fetchCompany(Number(id));
+        }
       }
-    });
+    );
   }
 
   ngOnDestroy(): void {
@@ -67,7 +69,7 @@ export class IdCompanyComponent implements OnInit, OnDestroy {
         this.loading = false;
         this.errorMessage = '';
       },
-      error: (error: any) => {
+      error: error => {
         console.error(error);
         this.errorMessage = error;
         this.loading = false;
