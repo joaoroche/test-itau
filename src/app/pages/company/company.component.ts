@@ -2,8 +2,10 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { IBusinessFormatted } from 'src/app/models/company';
 import { CompanyService } from 'src/app/services/company.service';
+import { Country } from 'src/app/utils/functions/price';
 import { mapperGetCompanysFormatted } from 'src/app/utils/mappers/company/getCompanys';
 
 // TODO: Montar logica que quando realizar o filtro e não achar valores, exibir uma mensagem de erro
@@ -32,7 +34,9 @@ export class CompanyComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private translateService: TranslateService
+
   ) {}
 
   ngOnInit() {
@@ -56,7 +60,7 @@ export class CompanyComponent implements OnInit, AfterViewInit {
 
     this.companyService.fetchCompanies().subscribe({
       next: (value) => {
-        this.dataSource.data = mapperGetCompanysFormatted(value.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize));
+        this.dataSource.data = mapperGetCompanysFormatted(value.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize), this.translateService.currentLang as Country);
         this.resultsLength = value.length;
         this.paginator.pageIndex = pageIndex;
         this.paginator.pageSize = pageSize;

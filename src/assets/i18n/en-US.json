@@ -1,0 +1,45 @@
+{
+  "campaigns": {
+    "title": "Itaú Hubs",
+    "subtitle": "Check out some of the main Itaú hubs below.",
+    "table": {
+      "name": "Name",
+      "business": "Business",
+      "valuation": "Valuation",
+      "situation": "Situation",
+      "action": "Action",
+      "inputSearch": "Search..."
+    }
+  },
+  "campaign": {
+    "title": "Hubs",
+    "subtitle": "Displaying hub details",
+    "detailAddress": {
+      "title": "Address details",
+      "street": "Street name",
+      "number": "Number",
+      "city": "City",
+      "state": "State",
+      "country": "Country",
+      "zipCode": "Zip code",
+      "neighborhood": "Neighborhood"
+    },
+    "detailCompany": {
+      "title": "Company details",
+      "name": "Name",
+      "business": "Business",
+      "valuation": "Valuation",
+      "situation": "Active?",
+      "cnpj": "CNPJ",
+      "optionsValues": {
+        "true": "Yes",
+        "false": "No"
+      },
+      "footer": {
+        "back": "Back",
+        "save": "Save"
+      }
+    }
+  },
+  "coin": "en-US"
+}

@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from 'src/app/services/language.service';
 
 @Component({
@@ -11,8 +11,11 @@ import { LanguageService } from 'src/app/services/language.service';
 export class HeaderComponent {
   selectedLanguage: string;
 
-  constructor(private languageService: LanguageService) {
+  constructor(private languageService: LanguageService, private translateService: TranslateService,
+  ) {
     this.selectedLanguage = this.languageService.getLanguage();
+    this.translateService.setDefaultLang(this.selectedLanguage);
+    this.translateService.use(this.selectedLanguage);
   }
 
   changeLanguage(event: Event): void {
@@ -24,5 +27,6 @@ export class HeaderComponent {
 
     this.selectedLanguage = value;
     this.languageService.setLanguage(value);
+    this.translateService.use(value);
   }
 }

@@ -15,11 +15,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
+
 import { HeaderComponent } from './components/header/header.component';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -28,6 +31,11 @@ import { IdCompanyComponent } from './pages/company/id-company/id-company.compon
 import { NotFoundComponentComponent } from './pages/not-found-component/not-found-component.component';
 
 import { AppComponent } from './app.component';
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +60,14 @@ import { AppComponent } from './app.component';
     MatInputModule,
     FormsModule,
     NgxMaskDirective,
-    NgxMaskPipe
+    NgxMaskPipe,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

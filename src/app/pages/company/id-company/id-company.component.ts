@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { provideNgxMask } from 'ngx-mask';
 import { IBusiness, IBusinessFormatted } from 'src/app/models/company';
 import { CompanyService } from 'src/app/services/company.service';
+import { Country } from 'src/app/utils/functions/price';
 import { mapperGetCompanyFormatted } from 'src/app/utils/mappers/company/getCompany';
 
 @Component({
@@ -21,7 +23,8 @@ export class IdCompanyComponent implements OnInit {
 
  constructor(
     private route: ActivatedRoute,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private translateService: TranslateService
   ) { }
 
   ngOnInit(): void {
@@ -38,7 +41,7 @@ export class IdCompanyComponent implements OnInit {
     this.loading = true;
     this.companyService.fetchCompanyById(id).subscribe({
       next: (company: IBusiness) => {
-        this.company = mapperGetCompanyFormatted(company)
+        this.company = mapperGetCompanyFormatted(company, this.translateService.currentLang as Country);
         this.loading = false;
         this.errorMessage = '';
       },

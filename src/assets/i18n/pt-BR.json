@@ -1,0 +1,45 @@
+{
+  "campaigns": {
+    "title": "Polos Itaú",
+    "subtitle": "Confira abaixo alguns dos principais polos do Itaú.",
+    "table": {
+      "name": "Nome",
+      "business": "Ramo",
+      "valuation": "Estimativa",
+      "situation": "Situação",
+      "action": "Ação",
+      "inputSearch": "Pesquisar..."
+    }
+  },
+  "campaign": {
+    "title": "Polos",
+    "subtitle": "Exibindo detalhes do polo",
+    "detailAddress": {
+      "title": "Detalhes do endereço",
+      "street": "Nome da rua",
+      "number": "Número",
+      "city": "Cidade",
+      "state": "Estado",
+      "country": "País",
+      "zipCode": "CEP",
+      "neighborhood": "Bairro"
+    },
+    "detailCompany": {
+      "title": "Detalhes da empresa",
+      "name": "Nome",
+      "business": "Ramo",
+      "valuation": "Estimativa",
+      "situation": "Ativo?",
+      "cnpj": "CNPJ",
+      "optionsValues": {
+        "true": "Sim",
+        "false": "Não"
+      },
+      "footer": {
+        "back": "Voltar",
+        "save": "Salvar"
+      }
+    }
+  },
+  "coin": "pt-BR"
+}
