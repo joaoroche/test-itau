@@ -8,7 +8,7 @@ describe('NotFoundComponentComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NotFoundComponentComponent]
+      declarations: [NotFoundComponentComponent],
     });
     fixture = TestBed.createComponent(NotFoundComponentComponent);
     component = fixture.componentInstance;

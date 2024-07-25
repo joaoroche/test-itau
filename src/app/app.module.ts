@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button'
+import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -19,10 +19,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core'
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { HeaderComponent } from './components/header/header.component';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -33,7 +33,7 @@ import { NotFoundComponentComponent } from './pages/not-found-component/not-foun
 import { AppComponent } from './app.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
@@ -42,7 +42,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HeaderComponent,
     CompanyComponent,
     IdCompanyComponent,
-    NotFoundComponentComponent
+    NotFoundComponentComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,11 +65,11 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

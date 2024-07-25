@@ -28,7 +28,6 @@
       }
     }
 
-
     .wrapper-search {
       .search {
         max-width: 25rem;
@@ -40,7 +39,6 @@
         font-size: 1rem;
       }
     }
-
   }
 
   .loading {
@@ -62,7 +60,9 @@
     border-radius: 0.5rem;
     max-width: 64rem;
     width: 100%;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+    box-shadow:
+      0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
 
     th {
       vertical-align: middle;
@@ -72,8 +72,6 @@
         padding-top: 0.3rem;
       }
     }
-
-
 
     .paginator {
       border-top: 1px solid #ccc;
@@ -95,19 +93,16 @@
     }
   }
 
-  .section, .table-container {
+  .section,
+  .table-container {
     margin: 0 auto;
   }
 }
-
-
-
 
 @media (max-width: 768px) {
   .section {
     flex-wrap: wrap;
     padding: 1rem;
-
 
     .wrapper-title {
       width: 100%;
@@ -136,5 +131,4 @@
       margin: 0.5rem 0;
     }
   }
-
 }

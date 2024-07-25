@@ -12,8 +12,9 @@ export class HeaderComponent {
   selectedLanguage: string;
   optionsLanguage = this.languageService.getLanguages();
 
-
-  constructor(private languageService: LanguageService, private translateService: TranslateService,
+  constructor(
+    private languageService: LanguageService,
+    private translateService: TranslateService
   ) {
     this.selectedLanguage = this.languageService.getLanguage();
     this.translateService.setDefaultLang(this.selectedLanguage);

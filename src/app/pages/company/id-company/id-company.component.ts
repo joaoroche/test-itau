@@ -11,7 +11,7 @@ import { mapperGetCompanyFormatted } from 'src/app/utils/mappers/company/getComp
   selector: 'app-id-company',
   templateUrl: './id-company.component.html',
   styleUrls: ['./id-company.component.scss'],
-  providers: [provideNgxMask(),]
+  providers: [provideNgxMask()],
 })
 export class IdCompanyComponent implements OnInit {
   // Data
@@ -21,11 +21,11 @@ export class IdCompanyComponent implements OnInit {
   loading = false;
   errorMessage = '';
 
- constructor(
+  constructor(
     private route: ActivatedRoute,
     private companyService: CompanyService,
     private translateService: TranslateService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -34,14 +34,16 @@ export class IdCompanyComponent implements OnInit {
         this.fetchCompany(Number(id));
       }
     });
-
   }
 
   fetchCompany(id: number): void {
     this.loading = true;
     this.companyService.fetchCompanyById(id).subscribe({
       next: (company: IBusiness) => {
-        this.company = mapperGetCompanyFormatted(company, this.translateService.currentLang as Country);
+        this.company = mapperGetCompanyFormatted(
+          company,
+          this.translateService.currentLang as Country
+        );
         this.loading = false;
         this.errorMessage = '';
       },
@@ -49,7 +51,7 @@ export class IdCompanyComponent implements OnInit {
         console.error(error);
         this.errorMessage = error;
         this.loading = false;
-      }
+      },
     });
   }
 
@@ -70,5 +72,4 @@ export class IdCompanyComponent implements OnInit {
   back(): void {
     window.history.back();
   }
-
 }

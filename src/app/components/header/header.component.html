@@ -1,7 +1,7 @@
 <header class="header">
   <div class="header-content">
     <div class="logo">
-      <img src="/assets/logoItau.png" alt="Itaú BBA Logo">
+      <img src="/assets/logoItau.png" alt="Itaú BBA Logo" />
     </div>
 
     <div class="right-section">
@@ -10,9 +10,12 @@
           disableRipple
           class="language-select"
           [value]="selectedLanguage"
-          (change)="changeLanguage($event)"
-          >
-          <option *ngFor="let language of optionsLanguage" [value]="language.value">{{ language.label }}</option>
+          (change)="changeLanguage($event)">
+          <option
+            *ngFor="let language of optionsLanguage"
+            [value]="language.value">
+            {{ language.label }}
+          </option>
         </select>
       </div>
 
@@ -25,7 +28,7 @@
         <span class="user-title">Diretor Itaú BBA</span>
       </div>
 
-     <div class="logout">
+      <div class="logout">
         <button
           mat-icon-button
           [matMenuTriggerFor]="menu"

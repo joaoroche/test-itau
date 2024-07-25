@@ -7,7 +7,7 @@ import cep from 'cep-promise';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CompanyService {
   private apiUrl = environment.apiUrl;
@@ -45,5 +45,4 @@ export class CompanyService {
       })
     );
   }
-
 }

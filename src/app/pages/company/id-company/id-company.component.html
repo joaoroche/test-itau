@@ -8,112 +8,134 @@
   </div>
 
   <section class="section" *ngIf="!loading && !errorMessage">
-    <h1 class="title" >{{"campaign.title" | translate}} {{company.name}}</h1>
+    <h1 class="title">{{ 'campaign.title' | translate }} {{ company.name }}</h1>
 
     <h6 class="description">
-      {{"campaign.subtitle" | translate}} {{company.name}}#{{company.id}}
+      {{ 'campaign.subtitle' | translate }} {{ company.name }}#{{ company.id }}
     </h6>
   </section>
 
-  <section class="form-content" *ngIf="!loading && !errorMessage" >
-    <p>{{"campaign.detailAddress.title" | translate}} </p>
+  <section class="form-content" *ngIf="!loading && !errorMessage">
+    <p>{{ 'campaign.detailAddress.title' | translate }}</p>
 
     <div class="form-group">
       <mat-form-field class="width-full">
-        <mat-label class="label">{{"campaign.detailAddress.zipCode" | translate}} </mat-label>
-        <input matInput placeholder="08030-190"
-        [(ngModel)]="company.cep"
-        [mask]="'00000-000'"
-        >
+        <mat-label class="label"
+          >{{ 'campaign.detailAddress.zipCode' | translate }}
+        </mat-label>
+        <input
+          matInput
+          placeholder="08030-190"
+          [(ngModel)]="company.cep"
+          [mask]="'00000-000'" />
       </mat-form-field>
 
       <mat-form-field class="street">
         <mat-label class="label">
-          {{"campaign.detailAddress.street" | translate}}
+          {{ 'campaign.detailAddress.street' | translate }}
         </mat-label>
-        <input matInput placeholder="R. Grapirá"
-        [(ngModel)]="company.street">
+        <input matInput placeholder="R. Grapirá" [(ngModel)]="company.street" />
       </mat-form-field>
 
       <mat-form-field class="width-full">
-        <mat-label class="label"> {{"campaign.detailAddress.neighborhood" | translate}}</mat-label>
-        <input matInput placeholder="Vila Prudente"
-        [(ngModel)]="company.neighborhood">
-      </mat-form-field>
-
-      <mat-form-field class="width-full">
-        <mat-label class="label">{{"campaign.detailAddress.state" | translate}}</mat-label>
-        <input matInput class="width-full" placeholder="SP"
-        [(ngModel)]="company.state"
-        maxlength="2"
+        <mat-label class="label">
+          {{ 'campaign.detailAddress.neighborhood' | translate }}</mat-label
         >
+        <input
+          matInput
+          placeholder="Vila Prudente"
+          [(ngModel)]="company.neighborhood" />
       </mat-form-field>
 
       <mat-form-field class="width-full">
-        <mat-label class="label">{{"campaign.detailAddress.city" | translate}}</mat-label>
-        <input matInput placeholder="São Paulo"
-        [(ngModel)]="company.city">
+        <mat-label class="label">{{
+          'campaign.detailAddress.state' | translate
+        }}</mat-label>
+        <input
+          matInput
+          class="width-full"
+          placeholder="SP"
+          [(ngModel)]="company.state"
+          maxlength="2" />
+      </mat-form-field>
+
+      <mat-form-field class="width-full">
+        <mat-label class="label">{{
+          'campaign.detailAddress.city' | translate
+        }}</mat-label>
+        <input matInput placeholder="São Paulo" [(ngModel)]="company.city" />
       </mat-form-field>
     </div>
   </section>
 
-  <section class="form-content" *ngIf="!loading && !errorMessage" >
-    <p>{{"campaign.detailCompany.title" | translate}}</p>
+  <section class="form-content" *ngIf="!loading && !errorMessage">
+    <p>{{ 'campaign.detailCompany.title' | translate }}</p>
 
     <div class="form-group">
       <mat-form-field class="width-full">
-        <mat-label class="label">{{"campaign.detailCompany.name" | translate}}</mat-label>
-        <input matInput placeholder="Nome da Empresa"
-        [(ngModel)]="company.name">
-      </mat-form-field>
-
-      <mat-form-field class="width-full">
-        <mat-label class="label">{{"campaign.detailCompany.business" | translate}} </mat-label>
-        <input matInput placeholder="Financeiro"
-        [(ngModel)]="company.business">
-      </mat-form-field>
-
-      <mat-form-field class="width-full">
-        <mat-label class="label">{{"campaign.detailCompany.valuation" | translate}} </mat-label>
-        <input matInput placeholder="R$ 1.000.000,00"
-        [(ngModel)]="company.formattedValuation">
-      </mat-form-field>
-
-      <mat-form-field class="width-full">
-        <mat-label class="label">{{"campaign.detailCompany.cnpj" | translate}}</mat-label>
+        <mat-label class="label">{{
+          'campaign.detailCompany.name' | translate
+        }}</mat-label>
         <input
-        matInput
-        placeholder="00.000.000/0000-00"
-        [(ngModel)]="company.cnpj"
-        [mask]="'99.999.999/9999-99'">
-
+          matInput
+          placeholder="Nome da Empresa"
+          [(ngModel)]="company.name" />
       </mat-form-field>
 
       <mat-form-field class="width-full">
-        <mat-label class="label">{{"campaign.detailCompany.situation" | translate}}</mat-label>
+        <mat-label class="label"
+          >{{ 'campaign.detailCompany.business' | translate }}
+        </mat-label>
+        <input
+          matInput
+          placeholder="Financeiro"
+          [(ngModel)]="company.business" />
+      </mat-form-field>
+
+      <mat-form-field class="width-full">
+        <mat-label class="label"
+          >{{ 'campaign.detailCompany.valuation' | translate }}
+        </mat-label>
+        <input
+          matInput
+          placeholder="R$ 1.000.000,00"
+          [(ngModel)]="company.formattedValuation" />
+      </mat-form-field>
+
+      <mat-form-field class="width-full">
+        <mat-label class="label">{{
+          'campaign.detailCompany.cnpj' | translate
+        }}</mat-label>
+        <input
+          matInput
+          placeholder="00.000.000/0000-00"
+          [(ngModel)]="company.cnpj"
+          [mask]="'99.999.999/9999-99'" />
+      </mat-form-field>
+
+      <mat-form-field class="width-full">
+        <mat-label class="label">{{
+          'campaign.detailCompany.situation' | translate
+        }}</mat-label>
         <select matNativeControl [(ngModel)]="company.active">
-          <option value="true">{{"campaign.detailCompany.optionsValues.true" | translate}}</option>
-          <option value="false">{{"campaign.detailCompany.optionsValues.false" | translate}}</option>
+          <option value="true">
+            {{ 'campaign.detailCompany.optionsValues.true' | translate }}
+          </option>
+          <option value="false">
+            {{ 'campaign.detailCompany.optionsValues.false' | translate }}
+          </option>
         </select>
       </mat-form-field>
     </div>
   </section>
 
-  <footer class="footer" *ngIf="!loading && !errorMessage" >
-    <button
-      mat-raised-button
-      class="button back"
-      (click)="back()"
-    >
-      {{"campaign.detailCompany.footer.back" | translate}}
+  <footer class="footer" *ngIf="!loading && !errorMessage">
+    <button mat-raised-button class="button back" (click)="back()">
+      {{ 'campaign.detailCompany.footer.back' | translate }}
     </button>
 
-    <button
-      mat-raised-button
-      class="button save"
-      (click)="save()"
-    >
-      {{"campaign.detailCompany.footer.save" | translate}}
+    <button mat-raised-button class="button save" (click)="save()">
+      {{ 'campaign.detailCompany.footer.save' | translate }}
     </button>
   </footer>
 </main>

@@ -6,24 +6,27 @@ import { NotFoundComponentComponent } from './pages/not-found-component/not-foun
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'company', pathMatch: 'full'
+    path: '',
+    redirectTo: 'company',
+    pathMatch: 'full',
   },
   {
-    path: 'company', component: CompanyComponent,
+    path: 'company',
+    component: CompanyComponent,
   },
   {
-    path: 'company/:id', component: IdCompanyComponent
+    path: 'company/:id',
+    component: IdCompanyComponent,
   },
   {
-    path        : '**',
-    pathMatch   : 'full',
-    component: NotFoundComponentComponent
-  }
-
+    path: '**',
+    pathMatch: 'full',
+    component: NotFoundComponentComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

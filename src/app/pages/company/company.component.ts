@@ -13,11 +13,17 @@ import { mapperGetCompanysFormatted } from 'src/app/utils/mappers/company/getCom
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
-  styleUrls: ['./company.component.scss']
+  styleUrls: ['./company.component.scss'],
 })
 export class CompanyComponent implements OnInit, AfterViewInit {
   // Table
-  displayedColumns: string[] = ['name', 'business', 'valuation', 'active', 'action'];
+  displayedColumns: string[] = [
+    'name',
+    'business',
+    'valuation',
+    'active',
+    'action',
+  ];
   dataSource = new MatTableDataSource<IBusinessFormatted>([]);
 
   // Paginator
@@ -36,14 +42,19 @@ export class CompanyComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private companyService: CompanyService,
     private translateService: TranslateService
-
   ) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      const pageIndex = params['pageIndex'] ? parseInt(params['pageIndex'], 10) : 0;
-      const pageSize = params['pageSize'] ? parseInt(params['pageSize'], 10) : 5;
-      const orderByAsc = params['orderByAsc'] ? JSON.parse(params['orderByAsc']) : true;
+      const pageIndex = params['pageIndex']
+        ? parseInt(params['pageIndex'], 10)
+        : 0;
+      const pageSize = params['pageSize']
+        ? parseInt(params['pageSize'], 10)
+        : 5;
+      const orderByAsc = params['orderByAsc']
+        ? JSON.parse(params['orderByAsc'])
+        : true;
 
       this.pageSize = pageSize;
       this.orderByAsc = orderByAsc;
@@ -59,13 +70,16 @@ export class CompanyComponent implements OnInit, AfterViewInit {
     this.loading = true;
 
     this.companyService.fetchCompanies().subscribe({
-      next: (value) => {
-        this.dataSource.data = mapperGetCompanysFormatted(value.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize), this.translateService.currentLang as Country);
+      next: value => {
+        this.dataSource.data = mapperGetCompanysFormatted(
+          value.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize),
+          this.translateService.currentLang as Country
+        );
         this.resultsLength = value.length;
         this.paginator.pageIndex = pageIndex;
         this.paginator.pageSize = pageSize;
       },
-      error: (error) => {
+      error: error => {
         this.errorMessage = error?.message || 'An error occurred';
         this.loading = false;
 
@@ -73,7 +87,7 @@ export class CompanyComponent implements OnInit, AfterViewInit {
       },
       complete: () => {
         this.loading = false;
-      }
+      },
     });
   }
 
@@ -85,10 +99,12 @@ export class CompanyComponent implements OnInit, AfterViewInit {
   onPageChange(event: PageEvent) {
     this.router.navigate([], {
       relativeTo: this.route,
-      queryParams: { pageIndex: event.pageIndex, pageSize: event.pageSize,
-        orderByAsc: this.orderByAsc
-       },
-      queryParamsHandling: 'merge'
+      queryParams: {
+        pageIndex: event.pageIndex,
+        pageSize: event.pageSize,
+        orderByAsc: this.orderByAsc,
+      },
+      queryParamsHandling: 'merge',
     });
     this.fetchData(event.pageIndex, event.pageSize);
   }
@@ -97,12 +113,13 @@ export class CompanyComponent implements OnInit, AfterViewInit {
     this.router.navigate([`/company/${id}`]);
   }
 
-    orderByAscName(orderByAsc: boolean) {
+  orderByAscName(orderByAsc: boolean) {
     const data = this.dataSource.data;
     this.dataSource.data = data.sort((a, b) => {
-      return orderByAsc ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
+      return orderByAsc
+        ? a.name.localeCompare(b.name)
+        : b.name.localeCompare(a.name);
     });
     this.orderByAsc = orderByAsc;
-
   }
 }

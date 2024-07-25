@@ -1,4 +1,3 @@
-
 # Teste Itaú
 
 ## Tabela de Conteúdo
@@ -29,21 +28,21 @@ Esse projeto foi desenvolvido com o intuito de avaliar o conhecimento do candida
 
 1. Clone o repositório:
 
-    ```bash
-    git clone https://github.com/joaoroche/test-itau
-    ```
+   ```bash
+   git clone https://github.com/joaoroche/test-itau
+   ```
 
 2. Navegue até o diretório do projeto:
 
-    ```bash
-    cd test-itau
-    ```
+   ```bash
+   cd test-itau
+   ```
 
 3. Instale as dependências:
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 ## Uso
 

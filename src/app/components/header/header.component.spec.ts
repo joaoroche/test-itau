@@ -11,10 +11,9 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
-      imports: [ NoopAnimationsModule, MatMenuModule, MatSelectModule ]
-    })
-    .compileComponents();
+      declarations: [HeaderComponent],
+      imports: [NoopAnimationsModule, MatMenuModule, MatSelectModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
@@ -26,12 +25,16 @@ describe('HeaderComponent', () => {
   });
 
   it('should have the correct default language selected', () => {
-    const select: HTMLSelectElement = fixture.debugElement.query(By.css('.language-select')).nativeElement;
+    const select: HTMLSelectElement = fixture.debugElement.query(
+      By.css('.language-select')
+    ).nativeElement;
     expect(select.value).toBe(component.selectedLanguage);
   });
 
   it('should change language when a different option is selected', () => {
-    const select: HTMLSelectElement = fixture.debugElement.query(By.css('.language-select')).nativeElement;
+    const select: HTMLSelectElement = fixture.debugElement.query(
+      By.css('.language-select')
+    ).nativeElement;
     select.value = select.options[1].value;
     select.dispatchEvent(new Event('change'));
     fixture.detectChanges();
@@ -40,14 +43,20 @@ describe('HeaderComponent', () => {
   });
 
   it('should display user name and title correctly', () => {
-    const userName: HTMLElement = fixture.debugElement.query(By.css('.user-name')).nativeElement;
-    const userTitle: HTMLElement = fixture.debugElement.query(By.css('.user-title')).nativeElement;
+    const userName: HTMLElement = fixture.debugElement.query(
+      By.css('.user-name')
+    ).nativeElement;
+    const userTitle: HTMLElement = fixture.debugElement.query(
+      By.css('.user-title')
+    ).nativeElement;
     expect(userName.textContent).toContain('John Doe');
     expect(userTitle.textContent).toContain('Diretor Itaú BBA');
   });
 
   it('menu items should be disabled', () => {
-    const menuItems = fixture.debugElement.queryAll(By.css('button[mat-menu-item][disabled]'));
+    const menuItems = fixture.debugElement.queryAll(
+      By.css('button[mat-menu-item][disabled]')
+    );
     expect(menuItems.length).toBe(3);
   });
 });
