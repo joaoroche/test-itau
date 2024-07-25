@@ -10,9 +10,9 @@
           disableRipple
           class="language-select"
           [value]="selectedLanguage"
-          (change)="changeLanguage($event)">
-          <option value="en-US" class="option">EN</option>
-          <option value="pt-BR" class="option">PT</option>
+          (change)="changeLanguage($event)"
+          >
+          <option *ngFor="let language of optionsLanguage" [value]="language.value">{{ language.label }}</option>
         </select>
       </div>
 

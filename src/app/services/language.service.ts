@@ -5,6 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class LanguageService {
   private language = 'pt-BR';
+  private languages = [{
+    value: 'pt-BR',
+    label: 'PT',
+  }, {
+    value: 'en-US',
+    label: 'EN',
+  }];
 
   getLanguage(): string {
     return this.language;
@@ -12,5 +19,9 @@ export class LanguageService {
 
   setLanguage(language: string): void {
     this.language = language;
+  }
+
+  getLanguages(): { value: string; label: string }[] {
+    return this.languages;
   }
 }

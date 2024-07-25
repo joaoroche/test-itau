@@ -10,6 +10,8 @@ import { LanguageService } from 'src/app/services/language.service';
 })
 export class HeaderComponent {
   selectedLanguage: string;
+  optionsLanguage = this.languageService.getLanguages();
+
 
   constructor(private languageService: LanguageService, private translateService: TranslateService,
   ) {
